@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2019", "dom"],
+    "module": "ESNext",
+    "target": "ES2019",
+    "outDir": "dist/",
+    "moduleResolution": "node",
+    "declaration": false,
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "checkJs": false,
+    "jsx": "react",
+    "pretty": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "baseUrl": "./src/",
+    "paths": {
+      "assets": ["assets/"],
+      "core": ["core/"],
+      "common": ["common/"],
+      "common-app": ["common-app/"],
+      "layouts": ["layouts/"],
+      "pods": ["pods/"],
+      "scenes": ["scenes/"],
+    }
+  },
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.{js, jsx, ts, tsx}", "./public", "./dist", "./.vscode"]
+}
