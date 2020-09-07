@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - "stable"
+cache:
+  directories:
+    - node_modules
+script:
+  - npm install
+  - npm run lint:fix
+  - npm run format
+  - npm run deploy:gh-pages
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $github_token
+  local_dir: dist
+  keep_history: true
+  on:
+    branch: master
