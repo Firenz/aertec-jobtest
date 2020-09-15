@@ -1,5 +1,13 @@
 import * as React from 'react';
+import { ThemeProvider, CssBaseline } from '@material-ui/core';
+import { Router, defaultTheme } from 'core';
 
 export const App: React.FC = () => {
-  return <h1>Hello from React</h1>;
+  return (
+    <ThemeProvider theme={defaultTheme}>
+      <CssBaseline>
+        <Router />
+      </CssBaseline>
+    </ThemeProvider>
+  );
 };
