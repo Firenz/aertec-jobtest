@@ -6,7 +6,8 @@ interface Context {
 }
 
 export const SearchTermContext = React.createContext<Context>({
-  searchTerm: '',
+  searchTerm:
+    'if you are reading this, likely you forgot to add the provider on top of your app',
   setSearchTerm: () => {
     console.warn(
       'if you are reading this, likely you forgot to add the provider on top of your app',

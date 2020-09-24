@@ -1,7 +1,10 @@
 import * as React from 'react';
-import { makeStyles, Theme, createStyles, Typography } from '@material-ui/core';
+import { makeStyles, Theme, createStyles } from '@material-ui/core';
 import { HeaderLayout } from 'layouts';
-import GradeIcon from '@material-ui/icons/Grade';
+import { MovieRatingComponent } from './movie-rating.component';
+import { MovieGenresComponent } from './movie-genres.component';
+import { MovieHeaderSubtitleComponent } from './movie-header-subtitle.component';
+import { MovieHeaderTitleComponent } from './movie-header-title.component';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -28,109 +31,30 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: 'flex-end',
       [theme.breakpoints.down('sm')]: {},
     },
-    movieTitle: {
-      fontSize: '3rem',
-      marginRight: theme.spacing(2),
-      [theme.breakpoints.down('sm')]: {
-        fontSize: '2rem',
-        margin: '1rem 0 0 0.2rem',
-      },
-      [theme.breakpoints.down('xs')]: {
-        fontSize: '1.5rem',
-        margin: '1rem 0 0 0.2rem',
-      },
-    },
-    movieYear: {
-      fontSize: '2.25rem',
-      opacity: 0.7,
-      paddingBottom: '0.2rem',
-      [theme.breakpoints.down('sm')]: {
-        fontSize: '1.2rem',
-        marginLeft: '0.4rem',
-        paddingBottom: '0.2rem',
-      },
-      [theme.breakpoints.down('xs')]: {
-        fontSize: '1rem',
-        paddingBottom: '0.1rem',
-      },
-    },
-    movieDetails: {
-      opacity: 0.8,
-      fontSize: '1rem',
-      marginTop: '0.5rem',
-      marginBottom: '0.5rem',
-      [theme.breakpoints.down('sm')]: {
-        fontSize: '0.85rem',
-      },
-      [theme.breakpoints.down('xs')]: {
-        fontSize: '0.8rem',
-      },
-    },
-    movieRating: {
-      alignSelf: 'center',
-      display: 'flex',
-      alignItems: 'center',
-      [theme.breakpoints.down('xs')]: {
-        flexDirection: 'row-reverse',
-        margin: `${theme.spacing(1)}px 0`,
-        '& .MuiTypography-h3': {
-          fontSize: '1rem',
-        },
-      },
-    },
-    movieRatingIcon: {
-      width: '3rem',
-      height: 'auto',
-      marginLeft: theme.spacing(1),
-      [theme.breakpoints.down('xs')]: {
-        width: '1.5rem',
-        marginLeft: 0,
-        marginRitgh: theme.spacing(1),
-      },
-    },
   }),
 );
 
-export const MovieDetailsHeaderComponent: React.FC = () => {
+interface Props {
+  title: string;
+  releaseYear: string;
+  genres: string[];
+  rating: number;
+}
+
+export const MovieDetailsHeaderComponent: React.FC<Props> = (props: Props) => {
   const classes = useStyles();
+  const { title, releaseYear, genres, rating } = props;
   return (
     <HeaderLayout>
       <div className={classes.movieHeader}>
         <div className={classes.movieInfoWrapper}>
           <div className={classes.movieTitlesWrapper}>
-            <Typography
-              variant="h3"
-              component="h1"
-              className={classes.movieTitle}
-            >
-              {'Movie Title'}
-            </Typography>
-            <Typography
-              variant="h5"
-              component="h2"
-              className={classes.movieYear}
-            >
-              {'(2020)'}
-            </Typography>
+            <MovieHeaderTitleComponent title={title} />
+            <MovieHeaderSubtitleComponent subtitle={releaseYear} />
           </div>
-          <Typography
-            className={classes.movieDetails}
-            variant="body2"
-            component="h3"
-          >
-            <span>{'duration'}</span>
-            {' | '}
-            <span>{'genres...'}</span>
-            {' | '}
-            <span>{'release date'}</span>
-          </Typography>
+          <MovieGenresComponent genres={genres} />
         </div>
-        <div className={classes.movieRating}>
-          <Typography variant="h3" component="span">
-            {'9.0'}
-          </Typography>
-          <GradeIcon className={classes.movieRatingIcon} />
-        </div>
+        <MovieRatingComponent rating={rating} />
       </div>
     </HeaderLayout>
   );

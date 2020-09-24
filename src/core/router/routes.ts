@@ -1,5 +1,3 @@
-import { generatePath } from 'react-router';
-
 interface SwitchRoutes {
   root: string;
   movieList: string;
@@ -9,5 +7,5 @@ interface SwitchRoutes {
 export const switchRoutes: SwitchRoutes = {
   root: '/',
   movieList: '/list',
-  movieDetails: '/movie/:id',
+  movieDetails: '/:media/:id',
 };

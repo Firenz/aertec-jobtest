@@ -1,6 +1,8 @@
 language: node_js
 node_js:
   - "stable"
+env:
+  - moviedb_apikey: $moviedb_apikey
 cache:
   directories:
     - node_modules
