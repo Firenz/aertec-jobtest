@@ -2,6 +2,7 @@ language: node_js
 node_js:
   - "stable"
 env:
+  global:
   - moviedb_apikey: $moviedb_apikey
 cache:
   directories:
@@ -15,6 +16,7 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $github_token
+  moviedb_apikey: $moviedb_apikey
   local_dir: dist
   keep_history: true
   on:
