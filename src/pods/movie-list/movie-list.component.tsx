@@ -1,114 +1,57 @@
 import * as React from 'react';
 import { Grid } from '@material-ui/core';
-import { Pagination } from '@material-ui/lab';
+// import { Pagination } from '@material-ui/lab';
 import { makeStyles, Theme, createStyles } from '@material-ui/core';
-import { MovieItemContainer } from './movie-item';
+import { MediaListVm, MediaVm } from 'core';
+import { MovieItemContainer } from './components/movie-item';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     grid: {
       alignSelf: 'center',
       width: '100% !important',
-      margin: '2rem 0 0',
-      justifyContent: 'flex-start',
+      margin: '2rem 0 6rem',
+      justifyContent: 'center',
       [theme.breakpoints.down('md')]: {
-        // width: '100% !important',
         justifyContent: 'center !important',
       },
     },
-    pagination: {
-      margin: '1rem auto 2rem',
-    },
+    // pagination: {
+    //   margin: '1rem auto 2rem',
+    //   margin: '1rem auto 6rem',
+    // },
   }),
 );
 
-interface MovieData {
-  title: string;
-  imageUrl: string;
-  rating: string;
-  director: string;
+interface Props {
+  movieList: MediaListVm;
 }
 
-export const MovieListComponent: React.FC = () => {
-  const classes = useStyles();
+export const MovieListComponent: React.FC<Props> = (props: Props) => {
+  const classes = useStyles(props);
+  const { movieList } = props;
 
-  const movieList: MovieData[] = [
-    {
-      title: '',
-      imageUrl: '',
-      rating: '0.0',
-      director: '',
-    },
-    {
-      title: '',
-      imageUrl: '',
-      rating: '0.0',
-      director: '',
-    },
-    {
-      title: '',
-      imageUrl: '',
-      rating: '0.0',
-      director: '',
-    },
-    {
-      title: '',
-      imageUrl: '',
-      rating: '0.0',
-      director: '',
-    },
-    {
-      title: '',
-      imageUrl: '',
-      rating: '0.0',
-      director: '',
-    },
-    // {
-    //   title: '',
-    //   imageUrl: '',
-    //   rating: '0.0',
-    //   director: '',
-    // },
-    // {
-    //   title: '',
-    //   imageUrl: '',
-    //   rating: '0.0',
-    //   director: '',
-    // },
-    // {
-    //   title: '',
-    //   imageUrl: '',
-    //   rating: '0.0',
-    //   director: '',
-    // },
-  ];
   return (
     <React.Fragment>
       <Grid
         className={classes.grid}
         container
         direction="row"
-        alignItems="flex-start"
+        alignItems="center"
         spacing={3}
       >
-        {movieList.map((movie: MovieData, index) => (
-          <MovieItemContainer
-            key={index}
-            title={movie.title}
-            imageUrl={movie.imageUrl}
-            rating={movie.rating}
-            director={movie.director}
-          />
+        {movieList.results.map((movie: MediaVm) => (
+          <MovieItemContainer key={movie.id} movieData={movie} />
         ))}
       </Grid>
-      <Pagination
+      {/* <Pagination
         className={classes.pagination}
         color="primary"
         size="large"
         count={10}
         showFirstButton
         showLastButton
-      />
+      /> */}
     </React.Fragment>
   );
 };
