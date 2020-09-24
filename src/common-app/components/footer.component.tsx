@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
     footerIcon: {
       height: '1rem',
       width: '1.2rem',
+      verticalAlign: 'text-bottom',
     },
   }),
 );
