@@ -14,8 +14,14 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-export const MovieSearchComponent: React.FC = () => {
-  const classes = useStyles();
+interface Props {
+  searchTerm: string;
+  updateSearchTerm: (newSearchTerm: string) => void;
+}
+
+export const MovieSearchComponent: React.FC<Props> = (props: Props) => {
+  const classes = useStyles(props);
+  const { searchTerm, updateSearchTerm } = props;
 
   return (
     <TextField
@@ -26,7 +32,8 @@ export const MovieSearchComponent: React.FC = () => {
       aria-label="Input text here to search movies by name"
       type="text"
       placeholder="Enter movie name"
-      onChange={(e) => console.log(e.target.value)}
+      value={searchTerm}
+      onChange={(e) => updateSearchTerm(e.target.value)}
       fullWidth
       margin="normal"
       InputProps={{
