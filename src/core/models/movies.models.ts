@@ -1,5 +1,6 @@
-export interface MovieVm {
+export interface MediaVm {
   id: number;
+  media_type: string;
   title: string;
   rating: number;
   overview: string;
@@ -8,9 +9,10 @@ export interface MovieVm {
   genre_ids: string[];
 }
 
-export const createDefaultMovieEntity = (): MovieVm => {
-  return <MovieVm>{
+export const createDefaultMedia = (): MediaVm => {
+  return <MediaVm>{
     id: -1,
+    media_type: '',
     title: '',
     rating: 0.0,
     overview: '',
@@ -20,15 +22,13 @@ export const createDefaultMovieEntity = (): MovieVm => {
   };
 };
 
-export interface MovieListVm {
-  page: number;
-  results: MovieVm[];
+export interface MediaListVm {
+  results: MediaVm[];
   total_results: number;
-  total_pages: number;
 }
 
-export const createDefaultMovieList = (): MovieListVm => {
-  return <MovieListVm>{
+export const createDefaultMediaList = (): MediaListVm => {
+  return <MediaListVm>{
     page: -1,
     results: [],
     total_results: -1,
@@ -36,7 +36,23 @@ export const createDefaultMovieList = (): MovieListVm => {
   };
 };
 
-export interface MovieGenreVm {
+export interface MediaVideoVm {
+  id: string;
+  key: string;
+  videoUrl: string;
+  width: number;
+}
+
+export const createDefaultMediaVideo = (): MediaVideoVm => {
+  return <MediaVideoVm>{
+    id: '',
+    key: '',
+    videoUrl: '',
+    width: -1,
+  };
+};
+
+export interface MediaGenreVm {
   id: number;
   name: string;
 }
