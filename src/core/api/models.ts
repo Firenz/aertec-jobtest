@@ -1,62 +1,58 @@
-export interface MovieApi {
-  poster_path: string;
-  adult: boolean;
-  overview: string;
-  release_date: string;
-  genre_ids: number[];
+export interface MediaApi {
   id: number;
-  original_title: string;
-  original_language: string;
+  media_type: string;
+  poster_path: string;
   title: string;
-  backdrop_path: string;
-  popularity: number;
-  vote_count: number;
-  video: boolean;
+  name: string;
+  original_name: string;
+  original_language: string;
+  overview: string;
   vote_average: number;
+  release_date: string;
+  first_air_date: string;
+  genre_ids: number[];
+  genres: MediaGenreApi[];
 }
 
-export const createDefaultMovieAPIEntity = (): MovieApi => {
-  return <MovieApi>{
-    poster_path: '',
-    adult: false,
-    overview: '',
-    release_date: '00-00-0000',
-    genre_ids: [-1],
-    id: -1,
-    original_title: '',
-    original_language: '',
-    title: '',
-    backdrop_path: '',
-    popularity: -1,
-    vote_count: -1,
-    video: false,
-    vote_average: -1,
-  };
-};
+export interface MediaVideoApi {
+  id: number;
+  results: [
+    {
+      id: string;
+      iso_639_1: string;
+      iso_3166_1: string;
+      key: string;
+      name: string;
+      site: string;
+      size: number;
+      type: string;
+    },
+  ];
+}
 
-export interface MovieListApi {
+export interface MediaListApi {
   page: number;
-  results: MovieApi[];
+  results: MediaApi[];
   total_results: number;
   total_pages: number;
 }
 
-export interface MovieGenreApi {
+export interface MediaGenreApi {
   id: number;
   name: string;
 }
 
-export interface MovieGenresApi {
-  genres: MovieGenreApi[];
+export interface MediaGenresApi {
+  genres: MediaGenreApi[];
 }
 
-export interface MovieApiError401 {
+export interface MediaApiError401 {
   status_message: string;
   success: boolean;
   status_code: number;
 }
 
-export interface MovieApiError404 {
+export interface MediaApiError404 {
   status_message: string;
   status_code: number;
 }
