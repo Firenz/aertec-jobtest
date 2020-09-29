@@ -209,3 +209,6 @@ $RECYCLE.BIN/
 ## Custom ##
 package-lock.json
 .awcache
+.env
+*.env
+.env.*

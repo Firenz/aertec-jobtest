@@ -1,7 +1,7 @@
 const baseUrl = 'https://api.themoviedb.org/3';
 const baseImageUrl = 'https://image.tmdb.org/t/p/w500';
 const defaultLanguage = 'en-US';
-const apiKey = process.env.moviedb_apikey;
+const apiKey = process.env.API_KEY;
 
 export const trendingMediaUrl = `${baseUrl}/trending/all/day?api_key=${apiKey}`;
 
