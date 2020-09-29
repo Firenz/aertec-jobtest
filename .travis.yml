@@ -13,7 +13,6 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $github_token
-  API_KEY: $moviedb_apikey
   local_dir: dist
   keep_history: true
   on:
