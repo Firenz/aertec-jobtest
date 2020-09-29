@@ -20,7 +20,7 @@
   "scripts": {
     "start": "rimraf dist && webpack-dev-server --mode development --open --config dev.webpack.config.js",
     "build:dev": "rimraf dist && webpack --mode development --config dev.webpack.config.js",
-    "build:prod": "rimraf dist && webpack --mode production --env.API_KEY=$moviedb_apikey --config prod.webpack.config.js",
+    "build:prod": "rimraf dist && webpack --mode production --config prod.webpack.config.js",
     "build:stats": "rimraf dist && webpack --mode development --config perf.webpack.config.js",
     "deploy:gh-pages": "npm run build:prod && gh-pages-clean && gh-pages -d dist -r https://$github_token@github.com/Firenz/aertec-jobtest.git",
     "test": "jest --verbose -c ./config/test/jest.json",
