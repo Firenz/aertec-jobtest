@@ -8,7 +8,8 @@ export const App: React.FC = () => {
     <ThemeProvider theme={defaultTheme}>
       <SearchTermSessionProvider>
         <CssBaseline>
-          <Router />
+          <h1>Testing without Router</h1>
+          {/* <Router /> */}
         </CssBaseline>
       </SearchTermSessionProvider>
     </ThemeProvider>
