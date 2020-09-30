@@ -11,8 +11,7 @@ export const MovieListScene: React.FC = () => {
         <MovieSearchContainer />
       </HeaderLayout>
       <MainLayout>
-        <h1>Testing without API_KEY</h1>
-        {/* <MovieListContainer /> */}
+        <MovieListContainer />
       </MainLayout>
     </AppLayout>
   );
