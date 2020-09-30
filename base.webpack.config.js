@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CheckerPlugin } = require('awesome-typescript-loader');
+const ChunksWebpackPlugin = require("chunks-webpack-plugin");
 const path = require('path');
 
 const basePath = __dirname;
@@ -79,5 +80,6 @@ module.exports = {
       template: './index.html',
     }),
     new CheckerPlugin(),
+    new ChunksWebpackPlugin()
   ],
 };
